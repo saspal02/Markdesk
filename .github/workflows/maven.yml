@@ -34,7 +34,7 @@ jobs:
         run: |
           ./mvnw clean package jib:dockerBuild -DskipTests
           echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
-          docker tag bookmarker-api:latest ${{ secrets.DOCKER_USERNAME }}/bookmarker-api:latest
+          docker tag bookmarker-api:latest ${{ secrets.DOCKER_USERNAME }}/bookmarker-api
           docker push ${{ secrets.DOCKER_USERNAME }}/bookmarker-api:latest
 
       - name: Update dependency graph
