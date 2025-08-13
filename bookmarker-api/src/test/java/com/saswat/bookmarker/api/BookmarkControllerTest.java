@@ -1,7 +1,7 @@
 package com.saswat.bookmarker.api;
 
 import com.saswat.bookmarker.domain.Bookmark;
-import com.saswat.bookmarker.domain.BookmarkRepository;
+import com.saswat.bookmarker.repository.BookmarkRepository;
 import org.hamcrest.CoreMatchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;
