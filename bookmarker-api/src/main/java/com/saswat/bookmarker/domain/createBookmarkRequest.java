@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 
-public class CreateBookmarkRequest {
+public class createBookmarkRequest {
     @NotEmpty(message = "Title should not be empty")
     private String title;
     @NotEmpty(message = "URL should not be empty")

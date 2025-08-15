@@ -1,6 +1,7 @@
 package com.saswat.bookmarker.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,5 +25,6 @@ public class Bookmark {
     @Column(nullable = false)
     private String url;
     private Instant createdAt;
+
 
 }

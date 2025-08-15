@@ -3,7 +3,7 @@ package com.saswat.bookmarker.api;
 import com.saswat.bookmarker.domain.BookmarkDTO;
 import com.saswat.bookmarker.domain.BookmarkService;
 import com.saswat.bookmarker.domain.BookmarksDTO;
-import com.saswat.bookmarker.domain.CreateBookmarkRequest;
+import com.saswat.bookmarker.domain.createBookmarkRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -27,7 +27,7 @@ public class BookmarkController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public BookmarkDTO createBookmark(@RequestBody @Valid CreateBookmarkRequest request) {
+    public BookmarkDTO createBookmark(@RequestBody @Valid createBookmarkRequest request) {
         return bookmarkService.createBookmark(request);
 
 

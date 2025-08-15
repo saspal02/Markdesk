@@ -9,11 +9,14 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.Instant;
+
 @Service
 @Transactional
 @RequiredArgsConstructor
 public class BookmarkService {
     private final BookmarkRepository repository;
+    private final BookmarkMapper bookmarkmapper;
 
     @Transactional(readOnly = true)
     public BookmarksDTO getBookmarks(Integer page) {
@@ -29,5 +32,14 @@ public class BookmarkService {
         Pageable pageable = PageRequest.of(pageNo, 10, Sort.Direction.DESC, "createdAt");
         Page<BookmarkDTO> bookmarkPage = repository.searchBookmarks(query, pageable);
         return new BookmarksDTO(bookmarkPage);
+    }
+
+    public BookmarkDTO createBookmark(createBookmarkRequest request) {
+        Bookmark bookmark = new Bookmark(null,request.getTitle(), request.getUrl(),Instant.now());
+        Bookmark savedBookmark = repository.save(bookmark);
+        return bookmarkmapper.toDto(savedBookmark);
+
+
+
     }
 }
